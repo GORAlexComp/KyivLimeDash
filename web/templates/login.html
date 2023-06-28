@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Авторизація - Київ Лайм 🇺🇦{% endblock %}
+
+{% block content %}
+<style>
+body {
+	background-position: center;
+	background-size: cover;
+}
+
+.form-signin {
+	flex-direction: column;
+	height: calc(100vh - 104px);
+}
+
+form {
+	background-color: #fafafa29;
+	backdrop-filter: blur(7px);
+}
+
+form  h1, form .checkbox {
+	color: var(--primary-text);
+}
+
+@media (max-width: 640px) {
+	body {
+		background-image: url("/static/img/bg-mobile.jpg");
+	}
+}
+
+@media (min-width: 641px) and (max-width: 1919px) {
+	body {
+		background-image: url("/static/img/bg-hd.jpg");
+	}
+}
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+	body {
+		background-image: url("/static/img/bg-fhd.jpg");
+	}
+}
+
+@media (min-width: 2560px) and (max-width: 3839px) {
+	body {
+		background-image: url("/static/img/bg-2k.jpg");
+	}
+}
+
+@media (min-width: 3840px) {
+	body {
+		background-image: url("/static/img/bg.jpg");
+	}
+}
+</style>
+
+<div class="form-signin text-center d-flex justify-content-center align-items-center">
+	<form method="POST" action="/login" class="p-5 shadow-sm">
+		<h1 class="h3 mb-5 fw-normal">Авторизація</h1>
+		<div class="form-floating">
+			<input type="email" name="email" class="form-control form-control-lg" id="floatingEmail" placeholder="Електронна пошта" autofocus="">
+			<label for="floatingEmail">Електронна пошта</label>
+		</div>
+		<div class="form-floating mt-2">
+			<input type="password" name="password" class="form-control form-control-lg" id="floatingPassword" placeholder="Пароль">
+			<label for="floatingPassword">Пароль</label>
+		</div>
+		<div class="checkbox mt-3 mb-3">
+			<label><input type="checkbox"> Запам'ятати мене</label>
+		</div>
+		<button class="w-100 btn btn-lg btn-success" type="submit">Увійти</button>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}Керування - Київ Лайм 🇺🇦{% endblock %}
+
+{% block content %}
+<header class="container-fluid">
+	<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center">
+		<div class="col-lg-8 p-3 p-lg-5 pt-lg-3 text-center">
+			<h1 class="display-4 fw-bold lh-1">Київ Лайм <span class="emoji">🇺🇦</span></h1>
+		</div>
+		<div class="col-lg-3 offset-lg-1 p-0 overflow-hidden shadow-lg header-logo-l">
+			<img class="rounded-lg-3 header-logo" src="/static/img/logo_summer.jpg" alt="">
+		</div>
+	</div>
+</header>
+
+<div class="container">
+	<div class="row mt-5 mb-3 ps-3 pe-3 pb-3 border-bottom">
+		<p class="display-6 block-title">Загальне</p>
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🔴</span> Повітряна тривога</h5>
+					<img src="/static/img/as.jpg" class="card-img-bottom pt-2 pb-3" alt="">
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#asModal">Відправити до каналу</button>
+						<div class="modal fade" id="asModal" tabindex="-1" aria-labelledby="asModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="asModalLabel"><span class="emoji">🔴</span> Повітряна тривога</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про початок повітряної тривоги?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.alertStart') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🟢</span> Відбій тривоги</h5>
+					<img src="/static/img/ae.jpg" class="card-img-bottom pt-2 pb-3" alt="">
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#aeModal">Відправити до каналу</button>
+						<div class="modal fade" id="aeModal" tabindex="-1" aria-labelledby="aeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="aeModalLabel"><span class="emoji">🟢</span> Відбій тривоги</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про відбій повітряної тривоги?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.alertEnd') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🕯️</span> Хвилина мовчання</h5>
+					<img src="/static/img/mos.jpg" class="card-img-bottom pt-2 pb-3" alt="">
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#mosModal">Відправити до каналу</button>
+						<div class="modal fade" id="mosModal" tabindex="-1" aria-labelledby="mosModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="mosModalLabel"><span class="emoji">🕯️</span> Хвилина мовчання</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про хвилину мовчання?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.mos') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🌑</span> Комендантська година - Початок</h5>
+					<img src="/static/img/pts.jpg" class="card-img-bottom pt-2 pb-3" alt="">
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#ptsModal">Відправити до каналу</button>
+						<div class="modal fade" id="ptsModal" tabindex="-1" aria-labelledby="ptsModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="ptsModalLabel"><span class="emoji">🌑</span> Комендантська година - Початок</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про початок комендантської години?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.ptStart') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">☀️</span> Комендантська година - Кінець</h5>
+					<img src="/static/img/pte.jpg" class="card-img-bottom pt-2 pb-3" alt="">
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#pteModal">Відправити до каналу</button>
+						<div class="modal fade" id="pteModal" tabindex="-1" aria-labelledby="pteModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="pteModalLabel"><span class="emoji">☀️</span> Комендантська година - Кінець</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про закінчення комендантської години?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.ptEnd') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mb-3 ps-3 pe-3 pt-3 pb-3 border-bottom">
+		<p class="display-6 block-title">Київська область</p>
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🟡</span> Вибухи - ППО</h5>
+					<p class="card-text"><span class="emoji">⚠️</span> Увага! ЗМІ повідомляють про роботу ППО у Київській області. Перебувайте у безпечних місцях!</p>
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#ppoAreaModal">Відправити до каналу</button>
+						<div class="modal fade" id="ppoAreaModal" tabindex="-1" aria-labelledby="ppoAreaModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="ppoAreaModalLabel"><span class="emoji">🟡</span> Вибухи - ППО - Київська область</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про роботу ППО у Київській області?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.ppoArea') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mb-3 ps-3 pe-3 pt-3 pb-3">
+		<p class="display-6 block-title">Місто Київ</p>
+		<div class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title"><span class="emoji">🟡</span> Вибухи - ППО</h5>
+					<p class="card-text"><span class="emoji">⚠️</span> Увага! ЗМІ повідомляють про роботу ППО у місті Київ. Перебувайте у безпечних місцях!</p>
+					<div class="row text-center px-2">
+						<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#ppoCityModal">Відправити до каналу</button>
+						<div class="modal fade" id="ppoCityModal" tabindex="-1" aria-labelledby="ppoCityModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="ppoCityModalLabel"><span class="emoji">🟡</span> Вибухи - ППО - Місто Київ</h1>
+										<button type="button" class="btn-close" style="filter: invert(100%);" data-bs-dismiss="modal"></button>
+									</div>
+									<div class="modal-body">
+										<p><span class="emoji">⁉️</span> Ви впевнені, що хочете сповістити про роботу ППО у місті Києві?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Відміна</button>
+										<form action="{{ url_for('main.ppoCity') }}">
+											<button type="submit" class="btn btn-success">Відправити</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

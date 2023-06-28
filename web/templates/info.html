@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Інформація - Київ Лайм 🇺🇦{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row mt-5 mb-3 ps-3 pe-3 pb-3">
+		<p class="display-6 block-title">Інформація</p>
+		<div class="row mb-4">
+			<div class="col-12 mb-4 justify-content-center d-flex">
+				<table class="table border-none text-light w-50">
+					<!-- <tr><td><strong>Аватар</strong></td><td>{{ info['photo']['big_file_id'] }}</td></tr> -->
+					<tr><td><strong>Аватар</strong></td><td><img src="https://api.telegram.org/file/bot5878473281:AAGAmMo2fxvXW-LimNIXDaUOXB9u5txBhyo/profile_photos/file_1.jpg" class="img-thumbnail w-50" alt=""></td></tr>
+					<tr><td><strong>Ідентифікатор</strong></td><td>{{ info['id'] }}</td></tr>
+					<tr><td><strong>Назва</strong></td><td class="emoji">{{ info['title'] }}</td></tr>
+					<tr><td><strong>Опис</strong></td><td class="emoji" style="white-space: pre-line">{{ info['description'] }}</p></td></tr>
+					<tr><td><strong>Ім'я</strong></td><td><a href="//t.me/{{ name }}">@{{ info['username'] }}</a></td></tr>
+					<tr><td><strong>Інші імена</strong></td><td>
+						{% for name in info['active_usernames'] %}
+						<a href="//t.me/{{ name }}">@{{ name }}</a>
+						{% endfor %}
+					</td></tr>
+					<tr><td><strong>Запрошення</strong></td><td><a href="{{ info['invite_link'] }}">{{ info['invite_link'] }}</a></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
